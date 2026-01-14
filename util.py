@@ -8,7 +8,7 @@ import cv2
 EMPTY = True
 NOT_EMPTY = False
 
-MODEL = pickle.load(open(r"C:\Users\Admin\Desktop\FILES\CV\Data\model\model.p", "rb"))
+MODEL = pickle.load(open(r"Data\model\model.p", "rb"))
 
 # compute the mean of the pixels between img1 and img2
 def calc_diff(img1, img2):

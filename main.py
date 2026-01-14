@@ -7,7 +7,7 @@ import time
 from util import get_parking_spots_bboxes, empty_or_not, calc_diff
 
 mask = "mask_1920_1080.png"
-video_path = r"C:\Users\Admin\Desktop\FILES\CV\Data\data\parking_1920_1080_loop.mp4"
+video_path = r"Data\data\parking_1920_1080_loop.mp4"
 OVERSTAY_THRESHOLD_MINUTES = 120  # 2 hours for parking violation
 
 
