@@ -6,7 +6,6 @@ import time
 
 from util import get_parking_spots_bboxes, empty_or_not, calc_diff
 
-# Configuration
 mask = "mask_1920_1080.png"
 video_path = r"C:\Users\Admin\Desktop\FILES\CV\Data\data\parking_1920_1080_loop.mp4"
 OVERSTAY_THRESHOLD_MINUTES = 120  # 2 hours for parking violation
@@ -73,7 +72,7 @@ class ParkingSpotTracker:
 
 
 def format_duration(duration):
-    """Format timedelta to readable string"""
+    """Format to readable string"""
     total_seconds = int(duration.total_seconds())
     hours = total_seconds // 3600
     minutes = (total_seconds % 3600) // 60
@@ -88,7 +87,7 @@ def format_duration(duration):
 
 
 def draw_enhanced_overlay(frame, trackers, spots):
-    """Draw comprehensive parking information overlay"""
+    """Draw parking information"""
     # Count statistics
     total_spots = len(trackers)
     occupied = sum(1 for t in trackers if t.is_occupied)
@@ -99,7 +98,7 @@ def draw_enhanced_overlay(frame, trackers, spots):
         if t.is_overstaying(datetime.now(), OVERSTAY_THRESHOLD_MINUTES)
     )
 
-    # Draw main info panel
+    # Draw main info panel (top left)
     panel_height = 130
     cv2.rectangle(frame, (20, 20), (350, panel_height), (0, 0, 0), -1)
     cv2.rectangle(frame, (20, 20), (350, panel_height), (255, 255, 255), 2)
@@ -233,7 +232,6 @@ def print_statistics(trackers):
     print("=" * 60 + "\n")
 
 
-# Main execution
 mask = cv2.imread(mask, 0)
 cap = cv2.VideoCapture(video_path)
 
