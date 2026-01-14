@@ -15,6 +15,21 @@ def calc_diff(img1, img2):
     return np.abs(np.mean(img1) - np.mean(img2))
 
 
+def format_duration(duration):
+    """Format timedelta to readable string"""
+    total_seconds = int(duration.total_seconds())
+    hours = total_seconds // 3600
+    minutes = (total_seconds % 3600) // 60
+    seconds = total_seconds % 60
+    
+    if hours > 0:
+        return f"{hours}h {minutes}m {seconds}s"
+    elif minutes > 0:
+        return f"{minutes}m {seconds}s"
+    else:
+        return f"{seconds}s"
+
+
 def empty_or_not(spot_bgr):
 
     flat_data = []
